@@ -17,22 +17,28 @@ describe('Pruebas en <GifItem.jsx', () => {
 
     });
 
-    test('debe mostrar la imagen con el URL y el ALT indicado', ()=> {})
-      
-    render(<GifItem title={ title } url={url} />)
-    // screen.debug();
-    // expect(screen.getByRole('img').src ).toBe(url);
-    // expect(screen.getByRole('img').alt).toBe( title );
+    test('debe mostrar la imagen con el URL y el ALT indicado', ()=> {
 
-    const {src, alt}= screen.getByRole('img'); //manera mas abreviada de testear el mismo ejemplo de arriba
-    expect(src).toBe(url);
-    expect(alt).toBe(alt);
+     render(<GifItem title={ title } url={url} />)  //render del sujeto de pruebas 
+
+     //screen.debug(); //muestra por consola que se esta renderizando al momento de ejecutar esta prueba
+
+     //expect(screen.getByRole('img').src).toBe(url); //tomamos la imagen con la propiedad src y evaluamos que coincida con la url que recibe
+     
+     //expect(screen.getByRole('img').alt).toBe( title ); //tomamos la imagen y evaluamos que el titulo sea igual que el de su propiedad alt 
+
+      const {src, alt}= screen.getByRole('img'); //en este const desestructuramos del elemento getByRole('img') las propiedades src y alt
+      expect(src).toBe(url); //evaluacion de la url
+      expect(alt).toBe(alt); //evaluacion del titulo 
+    })
+      
+    
 
     test("debe mostrar el titulo en el componente", () => {
 
-        render(<GifItem title={ title } url={url} />)
+        render(<GifItem title={ title } url={url} />) //render del sujeto de pruebas
 
-        expect(screen.getByText(title) ).toBeTruthy();
+        expect(screen.getByText(title) ).toBeTruthy(); //Evaluamos que realmente el texto se este renderizando en pantalla
     })
     
 }); 
