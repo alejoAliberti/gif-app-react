@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import  PropTypes  from "prop-types";
 
 export const AddCategory = ({ onNewValue}) => {  //invocamos la funcion con el desestructuramiento
 
@@ -10,6 +11,7 @@ export const AddCategory = ({ onNewValue}) => {  //invocamos la funcion con el d
     }
 
     const onSubmit = (event) => {
+
         event.preventDefault() //evitamos el refresh del navegador 
         if (inputValue.trim().length <= 1) return; 
         
@@ -35,4 +37,8 @@ export const AddCategory = ({ onNewValue}) => {  //invocamos la funcion con el d
     
     
   )
+}
+
+AddCategory.propTypes = {
+    onNewValue: PropTypes.func.isRequired,
 }

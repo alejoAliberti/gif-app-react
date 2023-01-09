@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
 import { GifItem } from "../../src/components";
 
 
 
-describe('Pruebas en <GifItem.jsx', () => {
+describe('Pruebas en <GifItem.jsx/>', () => {
     
     const title = 'Saitama'
     const url = 'https://one-punch.com/saitama.jpg'
