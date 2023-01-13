@@ -20,7 +20,7 @@ describe('Pruebas en <AddCategory />', () => {
    });
 
 
-   test('debe llama onNewValue si el input tiene un valor', () => {
+   test('debe llamar a onNewValue si el input tiene un valor', () => {
       
       const inputValue = 'Saitama'; //valor que vamos a mandar en nuestro input
       
@@ -52,26 +52,21 @@ describe('Pruebas en <AddCategory />', () => {
    });
 
 
-   test('no debe llamar el onNewValue si el input esta vacio', () => {
+   test('no debe llamar a onNewValue si el input esta vacio', () => {
 
-      const onNewValue = jest.fn(); //definimos que onNewValue es una funcion para poder utilizarla las veces que lo requeramos 
+      const onNewValue = jest.fn(); //mock de la funcion real onNewValue 
 
-
-      render( <AddCategory onNewValue={ onNewValue }/> ) //render del sujeto de pruebas
+      render( <AddCategory onNewValue={ onNewValue }/> ) //render del sujeto de pruebas con la funcion
 
       const form = screen.getByRole('form'); //referencia al formulario
 
-
       fireEvent.submit( form ); //ejecucion el evento submit del form
 
+      expect( onNewValue).toHaveBeenCalledTimes(0); //evaluamos que la funcion onNewVaLue haya sido llamada 0 veces, es decir, que no haya sido llamada 
 
-      expect( onNewValue).toHaveBeenCalledTimes(0); //evaluamos que la funcion onNewVaLue no haya sido llamada
+      expect( onNewValue).not.toHaveBeenCalled();// evaluamos que la funcion no haya sido llamada
 
-      expect( onNewValue).not.toHaveBeenCalled();// la misma evaluacion  opero con una mejor sintaxis
-
-      // screen.debug();
-
-   })
+   });
 
 
 
