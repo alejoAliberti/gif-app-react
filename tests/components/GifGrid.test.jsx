@@ -48,7 +48,7 @@ jest.mock('../../src/hooks/useFetchGifs');
 
       render( <GifGrid category={category} />); 
 
-      expect( screen.getAllByRole('img').length ).toBe(2);
+      expect( screen.getAllByRole('img').length ).toBe(2); //tomamos las imagenes del screen y evaluamos que sean 2
 
 
         
